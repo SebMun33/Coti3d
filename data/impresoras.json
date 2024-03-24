@@ -1,0 +1,12 @@
+{
+    "impresoras": [
+      {
+        "id": 0,
+        "alias": "ejemplo",
+        "modelo": "-",
+        "costo_compra": 0,
+        "costo_hora": 0,
+        "tipo_maquina": "-"
+      }
+    ]
+  }

@@ -1,0 +1,10 @@
+{
+    "materiales": [
+      {
+        "id": 0,
+        "nombre": "ejemplo",
+        "costo_kg": 0,
+        "tipo_material": "-"
+      }
+    ]
+  }
