@@ -1,12 +1,28 @@
 {
     "impresoras": [
-      {
-        "id": 0,
-        "alias": "ejemplo",
-        "modelo": "-",
-        "costo_compra": 0,
-        "costo_hora": 0,
-        "tipo_maquina": "-"
-      }
+        {
+            "id": 0,
+            "alias": "ejemplo",
+            "modelo": "-",
+            "costo_compra": 0,
+            "costo_hora": 0,
+            "tipo_maquina": "-"
+        },
+        {
+            "id": 1,
+            "alias": "Marta",
+            "modelo": "Modelo Z",
+            "costo_compra": 1200,
+            "costo_hora": 11,
+            "tipo_maquina": "Filamento"
+        },
+        {
+            "id": 2,
+            "alias": "Marta2",
+            "modelo": "Modelo Z",
+            "costo_compra": 1200,
+            "costo_hora": 11,
+            "tipo_maquina": "Filamento"
+        }
     ]
-  }
+}
