@@ -10,15 +10,7 @@
         },
         {
             "id": 1,
-            "alias": "Marta",
-            "modelo": "Modelo Z",
-            "costo_compra": 1200,
-            "costo_hora": 11,
-            "tipo_maquina": "Filamento"
-        },
-        {
-            "id": 2,
-            "alias": "Marta2",
+            "alias": "Marta4",
             "modelo": "Modelo Z",
             "costo_compra": 1200,
             "costo_hora": 11,
