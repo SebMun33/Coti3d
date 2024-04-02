@@ -1,33 +1,19 @@
-import datetime as dtime;
-import json;
-import os;
+import modulo_utilidades;
+
+ruta = modulo_utilidades.Ruta_De_Archivo()
 
 class Impresora:
     def __init__(self) -> None:
         pass
 
-    def obtener_num(self) -> None: #funcion para obtener el indice de la lista de impresoras
-        try:
-            current_dir = os.path.dirname(os.path.abspath(__file__)) #estas tres lineas son para obtener la ruta dinamica del archivo de data, de seguro se puede optimizar un poco, debería hacerlo
-            data_dir = os.path.join(current_dir, "data")
-            with open(os.path.join(data_dir, "impresoras.json"),"r") as file:
-                data=json.load(file)
-                return len(data["impresoras"])
-        except FileNotFoundError:
-            return 0
+    def obtener_num(self) -> int: #funcion para obtener el indice de la lista de impresoras
+        return ruta.Obtener_Cantidad("impresoras.json","impresoras")
 
-    def Obtener_Impresoras(self) -> None:  #esta funcion es para recuperar el diccionario de impresoras del json
-        current_dir=os.path.dirname(os.path.abspath(__file__))
-        data_dir=os.path.join(current_dir,"data")
-        with open(os.path.join(data_dir,"impresoras.json"),"r") as file:
-            data=json.load(file)
-            return data["impresoras"]
+    def Obtener_Impresoras(self) -> list:  #esta funcion es para recuperar el diccionario de impresoras del json
+        return ruta.Obtener_Elementos("impresoras.json","impresoras")
 
     def Guardar_Impresoras(self,impresoras:dict) -> None: #esta función es para actualizar el diccionario del json
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        data_dir = os.path.join(current_dir, "data")
-        with open(os.path.join(data_dir, "impresoras.json"), "w") as file:
-            json.dump({"impresoras":impresoras},file,indent=4)
+        ruta.Guardar_Elementos("impresoras.json","impresoras",impresoras)
 
     def Agregar_Impresora(self,alias,modelo,costo_compra,costo_hora,tipo) -> None: #esta funcion es la que le permite al usuario agragar nuevas impresoras a al json de impresoras
         impresoras=self.Obtener_Impresoras()
@@ -81,7 +67,7 @@ class Impresora:
             raise TypeError("esa impresora no existe")
         print(str(muestra["alias"])+", una "+str(muestra["modelo"])+" que costó "+str(muestra["costo_compra"])+" y que por hora cuesta"+str(muestra["costo_hora"]))
     
-    def Modificar_Impresora(self,impresora,atributo,nuevo) -> None:
+    def Modificar_Impresora(self,impresora,atributo,nuevo) -> None: #modifica una impresora de la lista
         impresoras=self.Obtener_Impresoras()
         impre_a_modificar=self.Buscar_Una_Impresora(impresora)
         impre_a_modificar[atributo]=nuevo
@@ -94,4 +80,10 @@ class Impresora:
             if impre["id"]==impre_a_modificar["id"]:
                 impresoras[i]=impre_a_modificar
         self.Guardar_Impresoras(impresoras)
+        
+    def Obtener_Id_Impresora(self,impresora) -> int: #Obtiene el id de la impresora seleccionada
+        impresoras=self.Obtener_Impresoras()
+        for imp in impresoras:
+            if imp["alias"]==impresora:
+                return imp["id"]
         

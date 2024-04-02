@@ -1,6 +1,7 @@
 {
     "cotizaciones": [
       {
+        "impresion":"ejemplo",
         "cliente": "ejemplo",
         "fecha": "2024-03-24T10:30:00",
         "maquina": 0,
