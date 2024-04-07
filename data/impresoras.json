@@ -15,6 +15,14 @@
             "costo_compra": 1200,
             "costo_hora": 11,
             "tipo_maquina": "Filamento"
+        },
+        {
+            "id": 2,
+            "alias": "Ender",
+            "modelo": "Ender 3",
+            "costo_compra": 100000,
+            "costo_hora": 250,
+            "tipo_maquina": "filamento"
         }
     ]
 }

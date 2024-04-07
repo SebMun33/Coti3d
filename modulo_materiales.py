@@ -10,7 +10,7 @@ class Material:
         return ruta.Obtener_Cantidad("materiales.json","materiales")
 
     def Obtener_Materiales(self) -> None:  #esta funcion es para recuperar el diccionario de materiales del json
-        return ruta.Obtener_Elementos("materiales.jsoes")
+        return ruta.Obtener_Elementos("materiales.json", "materiales")
 
     def Guardar_Materiales(self,materiales:dict) -> None: #esta función es para actualizar el diccionario del json
         ruta.Guardar_Elementos("materiales.json","materiales",materiales)
@@ -78,3 +78,10 @@ class Material:
             if impre["id"]==mat_a_modificar["id"]:
                 materiales[i]=mat_a_modificar
         self.Guardar_Materiales(materiales)
+        
+    def Obtener_Id_Material(self,material) -> int:
+        impresoras=self.Obtener_Materiales()
+        for imp in impresoras:
+            if imp["nombre"]==material:
+                return imp["id"]
+        

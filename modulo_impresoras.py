@@ -65,7 +65,7 @@ class Impresora:
         muestra=self.Buscar_Una_Impresora(impresora)
         if muestra["id"]==0:
             raise TypeError("esa impresora no existe")
-        print(str(muestra["alias"])+", una "+str(muestra["modelo"])+" que costó "+str(muestra["costo_compra"])+" y que por hora cuesta"+str(muestra["costo_hora"]))
+        print("alias: "+str(muestra["alias"])+"\nmodelo: "+str(muestra["modelo"])+"\ncosto_compra: "+str(muestra["costo_compra"])+"\ncosto_hora:"+str(muestra["costo_hora"]))
     
     def Modificar_Impresora(self,impresora,atributo,nuevo) -> None: #modifica una impresora de la lista
         impresoras=self.Obtener_Impresoras()

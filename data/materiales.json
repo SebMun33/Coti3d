@@ -9,14 +9,20 @@
         {
             "id": 1,
             "nombre": "MAgna",
-            "costo_kg": "9000",
+            "costo_kg": 9000,
             "tipo": "resina"
         },
         {
             "id": 2,
             "nombre": "Magna",
-            "costo_kg": "9000",
+            "costo_kg": 9000,
             "tipo": "resina"
-        }       
+        },
+        {
+            "id": 3,
+            "nombre": "Hellbot blanco",
+            "costo_kg": 12000,
+            "tipo": "PLA"
+        }
     ]
 }

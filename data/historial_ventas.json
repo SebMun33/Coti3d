@@ -1,16 +1,29 @@
 {
     "ventas": [
-      {
-        "cliente": "ejemplo",
-        "fecha": "2024-03-24T10:30:00",
-        "maquina": 0,
-        "material": 0,
-        "horas_impresion": 0,
-        "minutos_impresion": 0,
-        "peso_impresion":0,
-        "porcentaje_ganancia":0,
-        "costo_impresion":0,
-        "precio_venta":0
-      }
+        {
+            "cliente": "ejemplo",
+            "fecha": "2024-03-24T10:30:00",
+            "maquina": 0,
+            "material": 0,
+            "horas_impresion": 0,
+            "minutos_impresion": 0,
+            "peso_impresion": 0,
+            "porcentaje_ganancia": 0,
+            "costo_impresion": 0,
+            "precio_venta": 0
+        },
+        {
+            "impresion": "iron-man",
+            "cliente": "pedro-b",
+            "fecha": "04/04/2024",
+            "maquina": 2,
+            "material": 3,
+            "horas_impresion": 15,
+            "minutos_impresion": 21,
+            "peso_impresion": 500,
+            "porcentaje_ganancia": 20,
+            "costo_impresion": 9837.5,
+            "precio_venta": 11805.0
+        }
     ]
-  }
+}

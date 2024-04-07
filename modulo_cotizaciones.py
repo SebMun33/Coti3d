@@ -30,7 +30,9 @@ class Cotizaciones:
         precio_venta = precio_costo + precio_costo*(ganancia/100)
         return precio_venta
     
-    def Guardar_Cotizacion(self,impresion,cliente:str,impresora:str,material:str,peso:int,horas:int,minutos:int,ganancia:int,costo_imp:int,costo_venta:int) -> None: #esta función se encarga de guardar la cotización en el historial
+    def Guardar_Cotizacion(self,impresion,cliente:str,impresora:str,material:str,peso:int,horas:int,minutos:int,ganancia:int) -> None: #esta función se encarga de guardar la cotizacion en el historial
+        costo_imp = self.Cotizar_Impresion(impresora,material,peso,horas,minutos)
+        costo_venta = self.Cotizar_Venta(impresora,material,peso,horas,minutos,ganancia)
         historial = self.Obtener_Historial()
         hoy = date.today()
         fecha= hoy.strftime("%d/%m/%Y")
@@ -49,22 +51,30 @@ class Cotizaciones:
             }
         for coti in historial:
          if coti["cliente"]==cliente and coti["impresion"]==impresion:
-             raise ValueError("ese cliente ya tiene esa cotización hecha")
+             raise ValueError("ese cliente ya tiene esa cotizacion hecha")
         historial.append(datos_cotizacion)
         self.Actualizar_Historial(historial) 
         pass
     
-    def Cargar_Cotización(self,cliente:str,impresion:str) -> list: #esta función se encarga de cargar alguna cotización guardada
+    def Seleccionar_Cotizacion(self,cliente:str,impresion:str) -> list: #esta función se encarga de Seleccionar alguna cotizacion guardada
         if cliente=="ejemplo" and impresion == "ejemplo":
-            raise ValueError("Esa cotización no existe, pruebe de nuevo")
+            raise ValueError("Esa cotizacion no existe, pruebe de nuevo")
         historial=self.Obtener_Historial()
         for coti in historial:
          if coti["cliente"]==cliente and coti["impresion"]==impresion:
              seleccion=coti
         return seleccion
         
-    def Modificar_Cotizacion(self,cliente:str,impresion:str,atributo:str,nuevo_valor:str)->None: #esta función se encarga de modificar la última cotización cargada
-        seleccion = self.Cargar_Cotización(cliente,impresion)
+    def Modificar_Cotizacion(self,cliente:str,impresion:str,atributo:str,nuevo_valor:str)->None: #esta función se encarga de modificar la última cotizacion cargada
+        seleccion = self.Seleccionar_Cotizacion(cliente,impresion)
         seleccion[atributo]=nuevo_valor
         self.Actualizar_Historial()
-        print("se ha modificado la cotización de la impresión: " + impresion + " del cliente: " + cliente + "\nPara más información revise el historial")
+        print("se ha modificado la cotizacion de la impresión: " + impresion + " del cliente: " + cliente + "\nPara más información revise el historial")
+        pass 
+    
+    def Elimina_Cotizacion(self,cliente:str,impresion:str) -> None:
+        lista=self.Obtener_Historial(cliente,impresion)
+        seleccion=self.Seleccionar_Cotizacion(cliente,impresion)
+        lista.remove(seleccion)
+        self.Actualizar_Historial()
+        pass

@@ -45,6 +45,4 @@ class Ruta_De_Archivo:
                 return diccionario[indice][valor]
         except FileNotFoundError:
             raise ValueError("no se encontró el archivo")
-        
-ruta=Ruta_De_Archivo()
-print(ruta.Obtener_Elementos("impresoras.json","impresoras"))
+    
