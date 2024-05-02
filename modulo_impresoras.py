@@ -75,7 +75,6 @@ class Impresora:
             raise TypeError("esa impresora no existe")
         if atributo=="id":
             raise TypeError("por temas de funcionamiento no se puede modificar el id de las impresoras")
-        print("se ha modificado la impresora: "+str(impre_a_modificar["alias"])+"\n"+"los nuevos valores son:\n-modelo: "+str(impre_a_modificar["modelo"])+"\n-costo de compra: "+str(impre_a_modificar["costo_compra"])+"\n-costo por hora: "+str(impre_a_modificar["costo_hora"]))
         for i,impre in enumerate(impresoras):
             if impre["id"]==impre_a_modificar["id"]:
                 impresoras[i]=impre_a_modificar
